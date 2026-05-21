@@ -1,81 +1,99 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { WhatsAppCTA } from "@/components/layout/whatsapp-cta";
-
-const HERO_IMAGE = {
-  src: "https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?w=2400&q=80&auto=format&fit=crop",
-  alt: "Hot-air balloons rising over the rock formations of Cappadocia at dawn",
-};
+import { Component as InteractiveGlobe } from "@/components/ui/interactive-globe";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-bone">
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src={HERO_IMAGE.src}
-          alt={HERO_IMAGE.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-ink/10"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"
-        />
-      </div>
+    <section className="relative isolate overflow-hidden bg-bone text-ink">
+      {/* Ambient blue glow — soft, off-center, picks up the globe's cool tones */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-0 right-0 h-[80vh] w-[60vw] rounded-full bg-[var(--primary)]/[0.05] blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-1/3 -bottom-40 h-[40vh] w-[40vw] rounded-full bg-[var(--accent)]/40 blur-3xl"
+      />
 
-      <Container className="relative flex min-h-[88vh] flex-col justify-end py-24 md:min-h-[92vh] md:py-32">
-        <div className="grid items-end gap-16 md:grid-cols-12">
-          <div className="flex flex-col gap-7 md:col-span-7" data-reveal>
-            <p className="eyebrow text-clay">
-              <span className="mr-3">01</span>
-              <span className="mr-3 inline-block h-px w-10 align-middle bg-clay/60" />
-              An invitation
-            </p>
-            <h1 className="font-display text-[clamp(2.75rem,7vw,5rem)] leading-[0.98] tracking-tight text-bone">
-              The trip you've been
-              <br />
-              meaning to take.
-            </h1>
-            <p className="max-w-[48ch] text-[1.0625rem] leading-[1.65] text-bone/80">
-              Tailored journeys from Pakistan — outbound leisure across Turkey, Dubai, and
-              the Far East, Umrah groups inside the Haram precinct, and the Northern Areas
-              done at the pace they deserve. One brief, one quote, one agent on WhatsApp.
-            </p>
-            <div className="mt-2 flex flex-wrap items-center gap-4" data-reveal style={{ animationDelay: "120ms" }}>
-              <Button asChild size="lg">
-                <Link href="/inquire">Plan your trip →</Link>
-              </Button>
-              <WhatsAppCTA variant="link" className="text-bone/85 hover:text-bone">
-                Or chat with us on WhatsApp
-              </WhatsAppCTA>
-            </div>
+      <Container className="relative grid min-h-[88vh] items-center gap-12 py-20 md:min-h-[92vh] md:grid-cols-12 md:gap-16 md:py-28">
+        {/* Editorial copy — left */}
+        <div className="flex flex-col gap-7 md:col-span-6" data-reveal>
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--accent)]/40 px-3 py-1 text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent-foreground)]">
+            <span className="size-1.5 animate-pulse rounded-full bg-[var(--chart-2)]" />
+            Now booking — Shawwal Umrah & summer Hunza
           </div>
 
-          <aside
-            className="hidden flex-col gap-6 border-l border-bone/15 pl-8 md:col-span-4 md:col-start-9 md:flex"
+          <h1 className="font-display text-[clamp(2.75rem,6.5vw,4.75rem)] leading-[1] tracking-tight text-ink">
+            The trip you've been
+            <br />
+            <span className="bg-gradient-to-r from-[var(--primary)] to-[#5fb8f4] bg-clip-text text-transparent">
+              meaning to take.
+            </span>
+          </h1>
+
+          <p className="max-w-[48ch] text-[1.0625rem] leading-[1.65] text-ink/70">
+            Tailored journeys from Pakistan — outbound leisure across Turkey, Dubai, and the
+            Far East; Umrah groups inside the Haram precinct; the Northern Areas done at
+            the pace they deserve. One brief, one quote, one agent on WhatsApp.
+          </p>
+
+          <div
+            className="mt-2 flex flex-wrap items-center gap-4"
+            data-reveal
+            style={{ animationDelay: "120ms" }}
+          >
+            <Button asChild size="lg">
+              <Link href="/inquire">Plan your trip →</Link>
+            </Button>
+            <WhatsAppCTA variant="link">Or chat with us on WhatsApp</WhatsAppCTA>
+          </div>
+
+          {/* Stats strip */}
+          <div
+            className="mt-6 flex flex-wrap items-center gap-6 border-t border-[var(--border)] pt-6"
             data-reveal
             style={{ animationDelay: "240ms" }}
           >
-            <p className="eyebrow text-bone/55">Currently in season</p>
-            <p className="font-display text-2xl leading-tight text-bone">
-              Turkey is hitting its shoulder window — long, warm days without the August
-              crowd.
-            </p>
-            <Link
-              href="/destinations/turkey"
-              className="text-[0.8125rem] font-medium text-clay underline-offset-4 hover:underline"
+            <div>
+              <p className="font-display text-3xl leading-none text-ink">28+</p>
+              <p className="mt-1.5 text-[0.6875rem] uppercase tracking-[0.18em] text-ink/55">
+                Destinations
+              </p>
+            </div>
+            <div className="h-10 w-px bg-[var(--border)]" />
+            <div>
+              <p className="font-display text-3xl leading-none text-ink">3</p>
+              <p className="mt-1.5 text-[0.6875rem] uppercase tracking-[0.18em] text-ink/55">
+                Departure cities
+              </p>
+            </div>
+            <div className="h-10 w-px bg-[var(--border)]" />
+            <div>
+              <p className="font-display text-3xl leading-none text-ink">&lt;4h</p>
+              <p className="mt-1.5 text-[0.6875rem] uppercase tracking-[0.18em] text-ink/55">
+                Avg quote time
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Interactive globe — right */}
+        <div
+          className="relative flex items-center justify-center md:col-span-6"
+          data-reveal
+          style={{ animationDelay: "180ms" }}
+        >
+          <div className="relative aspect-square w-full max-w-[540px]">
+            <InteractiveGlobe size={540} className="!h-full !w-full" />
+            <p
+              aria-hidden
+              className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 text-[0.625rem] uppercase tracking-[0.22em] text-ink/40"
             >
-              See Turkey itineraries →
-            </Link>
-          </aside>
+              Drag the globe to explore — our active routes
+            </p>
+          </div>
         </div>
       </Container>
     </section>
