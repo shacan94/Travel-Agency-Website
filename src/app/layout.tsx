@@ -42,7 +42,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${inter.variable} ${openSans.variable}`}
+      className={`dark ${cormorant.variable} ${inter.variable} ${openSans.variable}`}
+      suppressHydrationWarning
     >
       <body className="min-h-screen bg-bone text-ink antialiased">{children}</body>
     </html>

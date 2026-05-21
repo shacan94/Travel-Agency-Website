@@ -9,12 +9,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-clay text-bone hover:bg-clay-deep border border-clay hover:border-clay-deep",
+          // Hardcoded white text — buttons must read clearly regardless of theme;
+          // the surface (`bg-clay`) carries the brand, the text just needs contrast.
+          "bg-clay text-white hover:bg-clay-deep border border-clay hover:border-clay-deep",
         outline:
-          "bg-transparent text-ink border border-ink/30 hover:border-ink hover:bg-ink/[0.03]",
-        ghost: "bg-transparent text-ink hover:bg-ink/[0.04]",
+          "bg-transparent text-ink border border-ink/30 hover:border-ink hover:bg-ink/[0.05]",
+        ghost: "bg-transparent text-ink hover:bg-ink/[0.06]",
         link: "bg-transparent text-ink underline underline-offset-4 hover:text-clay",
-        success: "bg-success text-bone hover:bg-success/90 border border-success",
+        success: "bg-success text-white hover:bg-success/90 border border-success",
       },
       size: {
         sm: "h-9 px-4 text-[0.8125rem]",

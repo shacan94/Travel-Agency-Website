@@ -77,6 +77,24 @@
 }
 
 .dark {
+  /* ─── Editorial palette — dark-mode mappings ──────────────────────────
+   * The semantic role of each token is preserved (bone = primary surface,
+   * ink = primary text, paper = elevated surface). In dark mode the values
+   * invert so every component built against bone/ink/clay automatically
+   * adapts without touching its className.
+   * ──────────────────────────────────────────────────────────────────── */
+  --color-bone: #000000;      /* pure black primary surface */
+  --color-ink: #e7e9ea;       /* light primary text */
+  --color-paper: #0a0a0a;     /* slight elevation (cards, the inquiry band) */
+  --color-sand: #14151a;      /* mid surface (image placeholders, process section) */
+  --color-mist: #242628;      /* dark hairlines */
+  --color-clay: #c79c6b;      /* lifted clay for AA contrast on black */
+  --color-clay-deep: #a87f4c;
+  --color-forest: #4a5e47;
+  --color-success: #3da551;   /* lifted success for WhatsApp pill on black */
+  --color-error: #f4212e;
+
+  /* ─── shadcn-convention tokens — dark variants (already in spec) ─── */
   --card: #17181c;
   --ring: #1da1f2;
   --input: #22303c;
@@ -110,6 +128,8 @@
   --destructive-foreground: #ffffff;
   --sidebar-accent-foreground: #1c9cf0;
   --sidebar-primary-foreground: #ffffff;
+
+  color-scheme: dark;
 }
 
 /* ---------------------------------------------------------------------------
@@ -197,6 +217,10 @@ html {
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {

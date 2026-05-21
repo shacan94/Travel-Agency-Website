@@ -54,10 +54,10 @@ export function DestinationsRow() {
                   />
                   <div
                     aria-hidden
-                    className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent"
+                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
                   />
-                  <div className="absolute right-5 bottom-5 left-5 text-bone">
-                    <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-bone/75">
+                  <div className="absolute right-5 bottom-5 left-5 text-white">
+                    <p className="text-[0.6875rem] uppercase tracking-[0.18em] text-white/75">
                       {d.region}
                     </p>
                     <p className="mt-1 font-display text-3xl leading-tight">{d.name}</p>

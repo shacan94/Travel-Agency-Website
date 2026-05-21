@@ -74,7 +74,7 @@ export function WhatsAppCTA({
         data-event="whatsapp_click"
         className={cn(
           base,
-          "fixed right-4 bottom-4 z-40 h-12 rounded-full bg-success px-5 text-bone shadow-[0_8px_28px_-8px_rgba(46,93,58,0.45)]",
+          "fixed right-4 bottom-4 z-40 h-12 rounded-full bg-success px-5 text-white shadow-[0_8px_28px_-8px_rgba(46,93,58,0.45)]",
           "md:hidden",
           className,
         )}
@@ -95,7 +95,7 @@ export function WhatsAppCTA({
       data-event="whatsapp_click"
       className={cn(
         base,
-        "h-12 rounded-full bg-success px-6 text-[0.9375rem] text-bone hover:bg-success/90",
+        "h-12 rounded-full bg-success px-6 text-[0.9375rem] text-white hover:bg-success/90",
         className,
       )}
     >

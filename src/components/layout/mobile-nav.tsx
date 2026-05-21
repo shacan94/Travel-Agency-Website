@@ -59,7 +59,7 @@ export function MobileNav() {
               <Link
                 href="/inquire"
                 onClick={() => setOpen(false)}
-                className="inline-flex h-12 items-center justify-center rounded-full bg-clay px-6 text-[0.9375rem] font-medium text-bone"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-clay px-6 text-[0.9375rem] font-medium text-white"
               >
                 Plan your trip
               </Link>
