@@ -1,26 +1,170 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+ * Design tokens — single source of truth (CLAUDE.md §4.1)
+ * Never reference raw hex in components; always use these variables / classes.
+ * ------------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette */
+  --color-ink: #0f0e0c;
+  --color-bone: #f6f2ec;
+  --color-paper: #ffffff;
+  --color-sand: #e7dfd2;
+  --color-clay: #b08a5b;
+  --color-clay-deep: #8c6a3e;
+  --color-forest: #2e3a2c;
+  --color-mist: #c9c3b8;
+  --color-success: #2e5d3a;
+  --color-error: #8c2f2f;
+
+  /* Type — wired up via next/font in layout.tsx */
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 250ms;
+  --duration-base: 400ms;
+  --duration-slow: 600ms;
+
+  /* Layout */
+  --container-max: 1320px;
+  --container-px: clamp(1.25rem, 4vw, 3rem);
 }
 
+/* ---------------------------------------------------------------------------
+ * Tailwind v4 theme bridge — exposes tokens as utility classes.
+ * Usage: bg-bone, text-ink, border-mist, font-display, font-sans, etc.
+ * ------------------------------------------------------------------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--color-ink);
+  --color-bone: var(--color-bone);
+  --color-paper: var(--color-paper);
+  --color-sand: var(--color-sand);
+  --color-clay: var(--color-clay);
+  --color-clay-deep: var(--color-clay-deep);
+  --color-forest: var(--color-forest);
+  --color-mist: var(--color-mist);
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+
+  /* Editorial type scale — rem (CLAUDE.md §4.2) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.25rem;
+  --text-5xl: 4.5rem;
+  --text-6xl: 6rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
+* {
+  border-color: var(--color-mist);
+}
+
+html {
+  background-color: var(--color-bone);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  background-color: var(--color-bone);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: var(--color-clay);
+  color: var(--color-paper);
+}
+
+/* Focus ring — clay, 2px, 2px offset (CLAUDE.md §8) */
+:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Typography utilities — editorial display + eyebrow
+ * ------------------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-clay);
+}
+
+.prose-editorial {
+  max-width: 68ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.prose-editorial p + p {
+  margin-top: 1.25em;
+}
+
+/* ---------------------------------------------------------------------------
+ * Motion — staggered fade-up on first paint
+ * Add `data-reveal` to any element; sections coordinate via inline delay.
+ * ------------------------------------------------------------------------- */
+@keyframes editorial-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-reveal] {
+  animation: editorial-rise var(--duration-slow) var(--ease-editorial) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Hairline rule helper
+ * ------------------------------------------------------------------------- */
+.hairline {
+  border-top: 1px solid var(--color-mist);
+}
+
+.hairline-b {
+  border-bottom: 1px solid var(--color-mist);
 }
