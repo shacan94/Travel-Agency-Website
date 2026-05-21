@@ -36,6 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Claude Code workspace artifacts (per-user; not project)
+.claude/
+
+# Local reference materials (kept off the repo)
+SKILL.md
+Diagnostic_Report_Travel_Agency_Pakistan.docx
+*Screenshot*.png
 # typescript
 *.tsbuildinfo
 next-env.d.ts
