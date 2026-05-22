@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { Container } from "@/components/layout/container";
-import { Button } from "@/components/ui/button";
 import { WhatsAppCTA } from "@/components/layout/whatsapp-cta";
 import { Component as InteractiveGlobe } from "@/components/ui/interactive-globe";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 export function Hero() {
   return (
@@ -44,9 +43,7 @@ export function Hero() {
             data-reveal
             style={{ animationDelay: "120ms" }}
           >
-            <Button asChild size="lg">
-              <Link href="/inquire">Plan your trip →</Link>
-            </Button>
+            <ShinyButton href="/inquire">Plan your trip →</ShinyButton>
             <WhatsAppCTA variant="link">Or chat with us on WhatsApp</WhatsAppCTA>
           </div>
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { EyebrowHeading } from "@/components/layout/eyebrow-heading";
-import { Button } from "@/components/ui/button";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 interface PagePlaceholderProps {
   eyebrow: string;
@@ -18,10 +18,8 @@ export function PagePlaceholder({ eyebrow, heading, lede }: PagePlaceholderProps
     <Section spacing="default" surface="bone">
       <div className="min-h-[60vh] py-16 md:py-24" data-reveal>
         <EyebrowHeading eyebrow={eyebrow} heading={heading} lede={lede} />
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Button asChild>
-            <Link href="/inquire">Plan your trip →</Link>
-          </Button>
+        <div className="mt-10 flex flex-wrap items-center gap-6">
+          <ShinyButton href="/inquire">Plan your trip →</ShinyButton>
           <Link
             href="/"
             className="inline-flex h-11 items-center text-[0.9375rem] text-ink/70 underline-offset-4 hover:text-clay hover:underline"
