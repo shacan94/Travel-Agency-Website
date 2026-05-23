@@ -1,11 +1,17 @@
 import { Container } from "@/components/layout/container";
 import { WhatsAppCTA } from "@/components/layout/whatsapp-cta";
 import { Component as InteractiveGlobe } from "@/components/ui/interactive-globe";
+import ProceduralGroundBackground from "@/components/ui/procedural-ground-background";
 import { ShinyButton } from "@/components/ui/shiny-button";
 
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-bone text-ink">
+      {/* WebGL procedural-ground background — topographic neon ripple shader,
+       * scoped to the Hero only (absolute, not fixed). Sits at -z-10 inside
+       * the section's isolate context so it stays behind the glows + content. */}
+      <ProceduralGroundBackground />
+
       {/* Ambient blue glow — soft, off-center, picks up the globe's cool tones */}
       <div
         aria-hidden
