@@ -450,8 +450,12 @@ body {
 }
 
 .shiny-cta span {
+  /* Intentionally NOT position: relative — the span::before pseudo below
+   * uses `width: calc(100% + 1rem)` and must resolve that to the BUTTON's
+   * containing block (.shiny-cta is the closest positioned ancestor), so
+   * the breathe-glow sweeps the full button width on hover rather than
+   * collapsing to a text-sized rectangle in the middle. */
   z-index: 1;
-  position: relative;
 }
 
 .shiny-cta span::before {
