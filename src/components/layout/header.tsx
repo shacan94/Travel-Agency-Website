@@ -4,7 +4,6 @@ import { brand } from "@/lib/brand";
 import { Button } from "@/components/ui/button";
 import { WhatsAppCTA } from "./whatsapp-cta";
 import { MobileNav } from "./mobile-nav";
-import { ScrollProgress } from "./scroll-progress";
 
 export function Header() {
   return (
@@ -41,7 +40,6 @@ export function Header() {
           <MobileNav />
         </div>
       </div>
-      <ScrollProgress />
     </header>
   );
 }

@@ -14,7 +14,7 @@ export function FeaturedPackages() {
   const packages = getFeaturedPackages();
 
   return (
-    <Section spacing="default" surface="bone">
+    <Section spacing="default" surface="bone" id="packages" data-scroll-section>
       <div className="flex flex-col gap-14">
         <div className="grid items-end gap-8 md:grid-cols-[1.4fr_1fr]">
           <EyebrowHeading

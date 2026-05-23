@@ -1,18 +1,21 @@
 import { Container } from "@/components/layout/container";
 import { WhatsAppCTA } from "@/components/layout/whatsapp-cta";
-import { Component as InteractiveGlobe } from "@/components/ui/interactive-globe";
 import ProceduralGroundBackground from "@/components/ui/procedural-ground-background";
 import { ShinyButton } from "@/components/ui/shiny-button";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-bone text-ink">
+    <section
+      id="hero"
+      data-scroll-section
+      className="relative isolate overflow-hidden bg-bone text-ink"
+    >
       {/* WebGL procedural-ground background — topographic neon ripple shader,
        * scoped to the Hero only (absolute, not fixed). Sits at -z-10 inside
        * the section's isolate context so it stays behind the glows + content. */}
       <ProceduralGroundBackground />
 
-      {/* Ambient blue glow — soft, off-center, picks up the globe's cool tones */}
+      {/* Ambient blue glow — soft, off-center, picks up the WebGL background's cool tones */}
       <div
         aria-hidden
         className="pointer-events-none absolute top-0 right-0 h-[80vh] w-[60vw] rounded-full bg-[var(--primary)]/[0.05] blur-3xl"
@@ -23,7 +26,9 @@ export function Hero() {
       />
 
       <Container className="relative grid min-h-[88vh] items-center gap-12 py-20 md:min-h-[92vh] md:grid-cols-12 md:gap-16 md:py-28">
-        {/* Editorial copy — left */}
+        {/* Editorial copy — left column kept on md:col-span-6 so the layout
+         * footprint is identical to when the globe was present. The right
+         * half now reveals the WebGL background. */}
         <div className="flex flex-col gap-7 md:col-span-6" data-reveal>
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--accent)]/40 px-3 py-1 text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent-foreground)]">
             <span className="size-1.5 animate-pulse rounded-full bg-[var(--chart-2)]" />
@@ -79,23 +84,6 @@ export function Hero() {
                 Avg quote time
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Interactive globe — right */}
-        <div
-          className="relative flex items-center justify-center md:col-span-6"
-          data-reveal
-          style={{ animationDelay: "180ms" }}
-        >
-          <div className="relative aspect-square w-full max-w-[540px]">
-            <InteractiveGlobe size={540} className="!h-full !w-full" />
-            <p
-              aria-hidden
-              className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 text-[0.625rem] uppercase tracking-[0.22em] text-ink/40"
-            >
-              Drag the globe to explore — our active routes
-            </p>
           </div>
         </div>
       </Container>

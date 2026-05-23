@@ -9,7 +9,7 @@ const NA_IMAGE = {
 
 export function NorthernAreasStrip() {
   return (
-    <Section spacing="default" surface="bone">
+    <Section spacing="default" surface="bone" id="northern-areas" data-scroll-section>
       <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
         <div className="md:col-span-5 md:order-1" data-reveal style={{ animationDelay: "120ms" }}>
           <p className="eyebrow">

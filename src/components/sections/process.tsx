@@ -23,7 +23,7 @@ const STEPS = [
 
 export function Process() {
   return (
-    <Section spacing="default" surface="sand">
+    <Section spacing="default" surface="sand" id="process" data-scroll-section>
       <div className="flex flex-col gap-14">
         <EyebrowHeading
           number="06"

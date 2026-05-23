@@ -9,7 +9,7 @@ const UMRAH_IMAGE = {
 
 export function UmrahStrip() {
   return (
-    <Section spacing="default" surface="bone">
+    <Section spacing="default" surface="bone" id="umrah" data-scroll-section>
       <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
         <div className="md:col-span-7" data-reveal>
           <div className="relative aspect-[4/5] overflow-hidden bg-sand md:aspect-[5/6]">

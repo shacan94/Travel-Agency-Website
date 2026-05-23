@@ -5,7 +5,7 @@ import { WhatsAppCTA } from "@/components/layout/whatsapp-cta";
 
 export function InquiryCta() {
   return (
-    <section className="bg-ink text-bone">
+    <section id="plan" data-scroll-section className="bg-ink text-bone">
       <Container className="py-24 md:py-32">
         <div className="mx-auto flex max-w-[60ch] flex-col items-center gap-8 text-center" data-reveal>
           <p className="eyebrow text-clay">08 · Plan your trip</p>

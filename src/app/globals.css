@@ -516,6 +516,29 @@ body {
   }
 }
 
+/* ---------------------------------------------------------------------------
+ * ScrollNav — auto-hiding label animation
+ * Used by src/components/layout/section-nav.tsx for the side-dot labels.
+ * ------------------------------------------------------------------------- */
+@keyframes fadeOutLabel {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0.5rem) scale(0.95);
+  }
+}
+
+.animate-fadeOut {
+  animation: fadeOutLabel 2.2s var(--ease-editorial) forwards;
+}
+
 /* ShinyButton-specific override of the global reduced-motion rule.
  * The site-wide rule above forces animation-duration: 0.001ms on every
  * element, which would kill this button's rotating border. Per session

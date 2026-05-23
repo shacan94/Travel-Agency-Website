@@ -8,7 +8,7 @@ export function DestinationsRow() {
   const destinations = getDestinations();
 
   return (
-    <Section spacing="default" surface="bone" bleed>
+    <Section spacing="default" surface="bone" bleed id="destinations" data-scroll-section>
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-px)]">
         <div className="mb-12 grid items-end gap-8 md:grid-cols-[1.4fr_1fr]">
           <EyebrowHeading
